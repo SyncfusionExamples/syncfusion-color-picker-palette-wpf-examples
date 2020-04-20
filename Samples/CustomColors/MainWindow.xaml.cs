@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Syncfusion.Windows.Tools.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,31 @@ namespace CustomColors
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int x
+        {
+            get; 
+            set;
+        }
+        private int xy = 10;
+        public int XY
+        {
+            get
+            {
+                return xy;
+            }
+            set
+            {
+                xy = value;
+                if (xy == 100)
+                {
+                    xy = 10;
+                }
+            }
+        }
         public MainWindow()
         {
             InitializeComponent();
+            this.Width = XY;
         }
     }
 }

@@ -17,8 +17,8 @@ namespace PropertyGrid_WPF
         private Visibility isCustomTabVisible;
         private Visibility isStandardTabVisible;
         private bool generateThemeVariants = true;
-        private bool generateStandardVariants;     
-        private bool isExpanded;
+        private bool generateStandardVariants;
+        private PickerMode pickerMode = PickerMode.Split;
         private Color selectedColor =Colors.Red;
         private ObservableCollection<PaletteTheme> paletteThemes;
         private PaletteTheme paletteTheme;
@@ -133,13 +133,13 @@ namespace PropertyGrid_WPF
             }
         }
 
-        public bool IsExpanded
+        public PickerMode PickerMode
         {
-            get { return isExpanded; }
+            get { return pickerMode; }
             set
             {
-               isExpanded = value;
-                this.RaisePropertyChanged(nameof(IsExpanded));
+                pickerMode = value;
+                this.RaisePropertyChanged(nameof(PickerMode));
             }
         }
 

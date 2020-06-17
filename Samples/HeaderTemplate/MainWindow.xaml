@@ -1,0 +1,33 @@
+﻿<Window x:Class="HeaderTemplate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="ColorPickerPalette - HeaderTemplate" Height="450" Width="800">
+    <Grid>
+        <syncfusion:ColorPickerPalette Grid.Row="0"  
+                                       x:Name="colorPickerPalette" 
+                                       Width="180"
+                                       Height="50" >
+            <syncfusion:ColorPickerPalette.HeaderTemplate >
+                <DataTemplate >
+                    <Grid Margin="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding 
+                            ColorName,
+                            RelativeSource={RelativeSource FindAncestor, 
+                                                           AncestorLevel=1,
+                                                           AncestorType={x:Type syncfusion:ColorPickerPalette}},
+                                                           UpdateSourceTrigger=PropertyChanged}"/>
+                        <Border x:Name="color_border" Grid.Row="1"/>
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:ColorPickerPalette.HeaderTemplate>
+        </syncfusion:ColorPickerPalette>
+    </Grid>
+</Window>

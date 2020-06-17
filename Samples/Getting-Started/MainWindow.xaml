@@ -16,7 +16,10 @@
         <local:ViewModel></local:ViewModel>
     </Window.DataContext>
 
-    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid x:Name="LayoutRoot"
+          Background="White" 
+          HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -31,9 +34,18 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Selected Color" Margin="3" HorizontalAlignment="Center" FontWeight="Bold" FontSize="12" Grid.Row="0"/>
-                <Rectangle Fill="{Binding SelectedColor,Converter={StaticResource ColorToBrushConverter},UpdateSourceTrigger=PropertyChanged}"
-                           Width="50" Height="50" Grid.Row="1"></Rectangle>
+                <TextBlock Text="Selected Color" 
+                           Margin="3" 
+                           HorizontalAlignment="Center" 
+                           FontWeight="Bold" 
+                           FontSize="12" 
+                           Grid.Row="0"/>
+                <Rectangle Fill="{Binding SelectedColor,
+                                          Converter={StaticResource ColorToBrushConverter},
+                                          UpdateSourceTrigger=PropertyChanged}"
+                           Width="50"
+                           Height="50"
+                           Grid.Row="1"/>
                 <syncfusion:ColorPickerPalette Color="{Binding SelectedColor, Mode=TwoWay}"
                                                Themes="{Binding PaletteTheme,Mode=TwoWay}"
                                                AutomaticColorVisibility="{Binding AutomaticColorVisibility, Mode=TwoWay}"
@@ -44,7 +56,7 @@
                                                MoreColorOptionVisibility="{Binding MoreColorOptionVisibility,Mode=TwoWay}"
                                                IsCustomTabVisible="{Binding IsCustomTabVisible,Mode=TwoWay}"
                                                IsStandardTabVisible="{Binding IsStandardTabVisible, Mode=TwoWay}"
-                                               IsExpanded="{Binding IsExpanded, Mode=TwoWay}"
+                                               Mode="{Binding PickerMode, Mode=TwoWay}"
                                                GenerateStandardVariants="{Binding GenerateStandardVariants, Mode=TwoWay}"
                                                GenerateThemeVariants="{Binding GenerateThemeVariants, Mode=TwoWay}"                                               
                                                AutomaticColor="Red" 
@@ -137,7 +149,7 @@
                 </ComboBox>
 
                 <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Expanded Mode"  Grid.Row="8"  Grid.Column="0"/>
-                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="8" Grid.Column="1" IsChecked="{Binding IsExpanded, Mode=TwoWay}"  Margin="5" Name="expandedMode"  />
+                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="8" Grid.Column="1" IsChecked="{Binding PickerMode, Mode=TwoWay}"  Margin="5" Name="expandedMode"  />
 
                 <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Generate StandardVariants"  Grid.Row="9"  Grid.Column="0"/>
                 <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="9" Grid.Column="1" IsChecked="{Binding GenerateStandardVariants, Mode=TwoWay}"  Margin="5" Name="generateStandardVariants"  />

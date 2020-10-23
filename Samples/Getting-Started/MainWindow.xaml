@@ -48,6 +48,7 @@
                            Grid.Row="1"/>
                 <syncfusion:ColorPickerPalette Color="{Binding SelectedColor, Mode=TwoWay}"
                                                Themes="{Binding PaletteTheme,Mode=TwoWay}"
+                                               NoColorVisibility="{Binding NoColorVisibility, Mode=TwoWay}"
                                                AutomaticColorVisibility="{Binding AutomaticColorVisibility, Mode=TwoWay}"
                                                ThemePanelVisibility="{Binding ThemePanelVisibility, Mode=TwoWay}"
                                                StandardPanelVisibility="{Binding StandardPanelVisibility,Mode=TwoWay}"
@@ -77,6 +78,7 @@
         <GroupBox Margin="0,0,3,3" FontWeight="Bold" FontSize="14" FontFamily="Segoe UI" Grid.Column="1" BorderBrush="Silver" Header="User Options">
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -136,29 +138,35 @@
                     <Visibility>Collapsed</Visibility>
                 </ComboBox>
 
-                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="CustomTab Visibility"  Grid.Row="6"  Grid.Column="0"/>
-                <ComboBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="6" Grid.Column="1"  SelectedValue="{Binding IsCustomTabVisible,Mode=TwoWay}" Margin="3" Name="CustomTab"  >
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="NoColor Visibility"  Grid.Row="6"  Grid.Column="0"/>
+                <ComboBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="6" Grid.Column="1"  SelectedValue="{Binding NoColorVisibility,Mode=TwoWay}" Margin="3" Name="noColorVisibility"  >
                     <Visibility>Visible</Visibility>
                     <Visibility>Collapsed</Visibility>
                 </ComboBox>
 
-                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="StandardTab Visibility"  Grid.Row="7"  Grid.Column="0"/>
-                <ComboBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="7" Grid.Column="1"  SelectedValue="{Binding IsStandardTabVisible,Mode=TwoWay}" Margin="3" Name="standardTab"  >
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="CustomTab Visibility"  Grid.Row="7"  Grid.Column="0"/>
+                <ComboBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="7" Grid.Column="1"  SelectedValue="{Binding IsCustomTabVisible,Mode=TwoWay}" Margin="3" Name="CustomTab"  >
                     <Visibility>Visible</Visibility>
                     <Visibility>Collapsed</Visibility>
                 </ComboBox>
 
-                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Expanded Mode"  Grid.Row="8"  Grid.Column="0"/>
-                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="8" Grid.Column="1" IsChecked="{Binding PickerMode, Mode=TwoWay}"  Margin="5" Name="expandedMode"  />
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="StandardTab Visibility"  Grid.Row="8"  Grid.Column="0"/>
+                <ComboBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="8" Grid.Column="1"  SelectedValue="{Binding IsStandardTabVisible,Mode=TwoWay}" Margin="3" Name="standardTab"  >
+                    <Visibility>Visible</Visibility>
+                    <Visibility>Collapsed</Visibility>
+                </ComboBox>
 
-                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Generate StandardVariants"  Grid.Row="9"  Grid.Column="0"/>
-                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="9" Grid.Column="1" IsChecked="{Binding GenerateStandardVariants, Mode=TwoWay}"  Margin="5" Name="generateStandardVariants"  />
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Expanded Mode"  Grid.Row="9"  Grid.Column="0"/>
+                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="9" Grid.Column="1" IsChecked="{Binding PickerMode, Mode=TwoWay}"  Margin="5" Name="expandedMode"  />
 
-                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="GenerateThemeVariants"  Grid.Row="10"  Grid.Column="0"/>
-                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="10" Grid.Column="1" IsChecked="{Binding GenerateThemeVariants, Mode=TwoWay}"  Margin="5" Name="generateThemeVariants"  />
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Generate StandardVariants"  Grid.Row="10"  Grid.Column="0"/>
+                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="10" Grid.Column="1" IsChecked="{Binding GenerateStandardVariants, Mode=TwoWay}"  Margin="5" Name="generateStandardVariants"  />
 
-                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Palette Theme"  Grid.Row="11"  Grid.Column="0"/>
-                <ComboBox ItemsSource="{Binding PaletteThemes}" SelectedValue="{Binding PaletteTheme,Mode=TwoWay}"  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="11" Grid.Column="1"   Margin="5" Name="palettetheme" />
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="GenerateThemeVariants"  Grid.Row="11"  Grid.Column="0"/>
+                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="11" Grid.Column="1" IsChecked="{Binding GenerateThemeVariants, Mode=TwoWay}"  Margin="5" Name="generateThemeVariants"  />
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Palette Theme"  Grid.Row="12"  Grid.Column="0"/>
+                <ComboBox ItemsSource="{Binding PaletteThemes}" SelectedValue="{Binding PaletteTheme,Mode=TwoWay}"  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="12" Grid.Column="1"   Margin="5" Name="palettetheme" />
 
             </Grid>
         </GroupBox>

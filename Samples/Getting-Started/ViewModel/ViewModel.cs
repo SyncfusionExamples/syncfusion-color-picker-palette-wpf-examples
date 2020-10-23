@@ -22,6 +22,7 @@ namespace PropertyGrid_WPF
         private Color selectedColor =Colors.Red;
         private ObservableCollection<PaletteTheme> paletteThemes;
         private PaletteTheme paletteTheme;
+        private Visibility noColorVisibility= Visibility.Visible;
 
         public PaletteTheme PaletteTheme
         {
@@ -65,6 +66,16 @@ namespace PropertyGrid_WPF
             {
                 automaticColorVisibility = value;
                 this.RaisePropertyChanged(nameof(AutomaticColorVisibility));
+            }
+        }
+        
+        public Visibility NoColorVisibility
+        {
+            get { return noColorVisibility; }
+            set
+            {
+                noColorVisibility = value;
+                this.RaisePropertyChanged(nameof(NoColorVisibility));
             }
         }
 
